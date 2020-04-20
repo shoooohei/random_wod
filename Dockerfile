@@ -32,6 +32,14 @@ RUN yum -y install \
   sudo \
   unzip
 
+# yarnとnodejsをインストール
+# ↓ 参照: https://classic.yarnpkg.com/en/docs/install/#centos-stable
+RUN curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+# ↓ 参照: https://github.com/nodesource/distributions#installation-instructions-1
+RUN curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+RUN yum -y install nodejs yarn
+RUN yum clean all
+
 # このプロジェクトに必要な他のパッケージをインストール
 RUN yum -y install \
   postgresql \
