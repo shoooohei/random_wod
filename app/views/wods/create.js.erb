@@ -1,0 +1,8 @@
+videoBtn = document.querySelector('#video-btn')
+imageBtn = document.querySelector('#image-btn')
+
+videoBtn.setAttribute("href", "<%= @client.video_url %>".replace(/amp;/g, ""))
+imageBtn.setAttribute("href", "<%= @client.image_url %>".replace(/amp;/g, ""))
+
+videoBtn.classList.remove('hide')
+imageBtn.classList.remove('hide')

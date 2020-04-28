@@ -1,5 +1,5 @@
 class InstagramClient
-  attr_accessor :session
+  attr_accessor :session, :doc, :video_url, :image_url
 
   def initialize
     Capybara.register_driver :selenium do |app|
@@ -18,18 +18,28 @@ class InstagramClient
   end
 
   def crawl!(url)
-    parse_top_page(url)
+    self.doc = parse_top_page(url)
     sleep 2
+    set_video_url
+    set_image_url
+    puts "video_url"
+    puts "#{video_url}"
+    puts "image_url"
+    puts "#{image_url}"
   end
 
   private
 
   def parse_top_page(url)
     session.visit url
-    doc = Nokogiri::HTML.parse(@session.html) # Nokogiri::HTML::Document
-    puts "video_url"
-    puts "#{doc.at_css('video.tWeCl').attributes["src"].value}"
-    puts "image_url"
-    puts "#{doc.at_css('img._8jZFn').attributes["src"].value}"
+    Nokogiri::HTML.parse(@session.html) # Nokogiri::HTML::Document
+  end
+
+  def set_video_url
+    self.video_url = doc.at_css('video.tWeCl').attributes["src"].value
+  end
+
+  def set_image_url
+    self.image_url = doc.at_css('img._8jZFn').attributes["src"].value
   end
 end
