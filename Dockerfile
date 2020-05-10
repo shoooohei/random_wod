@@ -45,13 +45,6 @@ RUN yum -y install \
   postgresql \
   postgresql-devel
 
-# ログインユーザーを作成
-RUN \
- useradd -m dev; \
- echo 'dev:dev' | chpasswd; \
- echo "dev ALL=NOPASSWD: ALL" >> /etc/sudoers
-RUN chown -R dev:dev /home/dev
-
 # chromeをインストール
 RUN curl https://intoli.com/install-google-chrome.sh | bash
 
@@ -90,11 +83,8 @@ COPY script/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
-# ユーザーをdevに変えてbundle install
+# bundle install
 COPY Gemfile* ${APP_PATH}/
-RUN chown -R dev:dev /usr/local/rbenv
-RUN chown -R dev:dev ${APP_PATH}
-USER dev
 RUN bundle install
 RUN rbenv rehash
 
