@@ -1,4 +1,4 @@
-class InstagramClient
+class InstagramWod
   attr_accessor :session, :doc, :video_url, :image_url
 
   def initialize

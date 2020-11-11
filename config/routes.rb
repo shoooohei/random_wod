@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :wods
+  resources :instagram_wods, only: [:new, :create]
 end
