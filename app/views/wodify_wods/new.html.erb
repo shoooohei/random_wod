@@ -1,0 +1,17 @@
+<h1>WodifyのWodを検索</h1>
+<% if flash[:notice].present? %>
+  <%= flash[:notice] %>
+<% end %>
+<%= form_with(scope: :wodify_wod, url: wodify_wods_path, local: true) do |form| %>
+  <div>
+    <%= form.label :start_date, "開始日" %>
+    <%= form.date_field :start_date, value: Date.current %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :end_date, "終了日" %>
+    <%= form.date_field :end_date, value: Date.current %>
+  </div>
+  <br>
+  <%= form.submit "検索" %>
+<% end %>
