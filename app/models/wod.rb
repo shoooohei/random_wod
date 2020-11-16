@@ -1,13 +1,13 @@
 class Wod < ApplicationRecord
   validates :date, presence: true, uniqueness: true
-  validates_presence_of :strength, if: :strength_record
-  validates_presence_of :conditioning, if: :conditioning_reocrd
-  validates_presence_of :wod, if: :wod_record
-  validate :must_have_at_least_one_workout
+  validates_presence_of :content
+  validate :must_be_same_date_as_specified_date, if: :specified_date
 
-  def must_have_at_least_one_workout
-    if strength.blank? && conditioning.blank? && wod.blank?
-      errors[:base] << "ワークアウトが入力されていません。"
+  private
+
+  def must_be_same_date_as_specified_date
+    if date != specified_date
+      errors[:base] << "指定したWodの日付と異なっています。"
     end
   end
 end

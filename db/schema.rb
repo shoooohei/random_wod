@@ -29,13 +29,7 @@ ActiveRecord::Schema.define(version: 2020_11_15_100351) do
 
   create_table "wods", force: :cascade do |t|
     t.date "date", null: false
-    t.string "strength"
-    t.string "strength_record"
-    t.string "conditioning"
-    t.string "conditioning_reocrd"
-    t.string "wod"
-    t.string "wod_record"
-    t.float "rate"
+    t.string "content"
     t.string "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
