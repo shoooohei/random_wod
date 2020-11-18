@@ -40,7 +40,7 @@ class WodifyWod
     end
     sign_in(email, password)
     date_range.each do |date|
-      block.call(fetch_wod_html_on(date))
+      block.call(fetch_wod_html_on(date), date)
     end
     sign_out
   end
