@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-ENV RUBY_VERSION 2.7.1
+ENV RUBY_VERSION 2.6.6
 ENV LANG C.UTF-8
 ENV APP_ROOT /usr/src/random_wod
 # rbenvのpathを通す
