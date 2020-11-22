@@ -2,7 +2,7 @@ FROM centos:centos7
 
 ENV RUBY_VERSION 2.6.6
 ENV LANG C.UTF-8
-ENV APP_ROOT /usr/src/random_wod
+ENV APP_ROOT /usr/src/record_wod
 # rbenvのpathを通す
 ENV RBENV_ROOT /home/dev/.rbenv
 ENV PATH ${RBENV_ROOT}/shims:${RBENV_ROOT}/bin:${PATH}
