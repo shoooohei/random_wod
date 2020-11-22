@@ -3,11 +3,11 @@
 ## アプリ概要
 CrossfitのWODを記録するWebアプリケーション
 
-* Ruby version
+* Ruby version  
 2.6.6
 
-* System dependencies
-PostgreSQL 12.2
+* System dependencies  
+PostgreSQL 12.2  
 ChromeDriver 87.0.4280.20
 
 * How to build development environment
