@@ -69,7 +69,6 @@ class WodifyWod
       fill_in(SING_IN_USER_NAME_PASSWORD, with: password)
       click_on(SIGN_IN_BUTTON)
       sleep(2)
-      save_screenshot
     end
   end
 
@@ -77,7 +76,6 @@ class WodifyWod
     session.instance_eval do
       fill_in(DATE_FORM_ID, with: date.strftime("%Y/%m/%d"))
       sleep(3)
-      save_screenshot
     end
   end
 
@@ -90,7 +88,6 @@ class WodifyWod
     session.instance_eval do
       click_on(LOGOUT_BUTTON)
       sleep(3)
-      save_screenshot
     end
   end
 end
