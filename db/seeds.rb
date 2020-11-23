@@ -1,8 +1,5 @@
 return unless File.exist?('tmp/wod_data.json')
-wod_data = []
-File.open('tmp/wod_data.json') do |file|
-  wod_data = JSON.load(file)
-end
+wod_data = JSON.parse(IO.read('tmp/wod_data.json'))
 
 is_succeeded = true
 Wod.transaction do
@@ -18,5 +15,5 @@ Wod.transaction do
 end
 
 if is_succeeded
-  puts "全てのWODのデータの挿入に成功しました。"
+  puts "全てのWODデータの挿入に成功しました。"
 end
