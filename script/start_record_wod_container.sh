@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ##############################################################
 # コンテナ起動スクリプト
@@ -9,7 +9,7 @@
 #
 ##############################################################
 
-COMMAND_RESULT=`docker-compose ps -q`
+COMMAND_RESULT=$(docker-compose ps -q)
 
 if [ '' == "$COMMAND_RESULT" ] ; then
 
