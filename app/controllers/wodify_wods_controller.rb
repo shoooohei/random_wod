@@ -9,8 +9,8 @@ class WodifyWodsController < ApplicationController
       wodify_wod_client.fetch_wods(
         wodify_wod_params[:email],
         wodify_wod_params[:password],
-        wodify_wod_params[:date_1],
-        wodify_wod_params[:date_2]
+        Date.parse(wodify_wod_params[:date_1]),
+        Date.parse(wodify_wod_params[:date_2])
       ) do |each_wod_html, date|
         wod = Wod.new(specified_date: date)
         logger.info("specified_date: #{date}")

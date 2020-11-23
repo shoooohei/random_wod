@@ -30,9 +30,14 @@ class WodifyWod
     @session = Capybara::Session.new(:selenium)
   end
 
-  def fetch_wods(email, password, _date_1, _date_2, &block)
-    date_1 = Date.parse(_date_1)
-    date_2 = Date.parse(_date_2)
+  # @param [String] email
+  # @param [String] password
+  # @param [Date] date_1
+  # @param [Date] date_2
+  def fetch_wods(email, password, date_1, date_2, &block)
+    if !date_1.is_a?(Date) || !date_2.is_a?(Date)
+      raise TypeError "date_1 and date_2 must be Date object", caller
+    end
     if date_1 < date_2
       date_range = (date_1..date_2)
     else
@@ -45,14 +50,10 @@ class WodifyWod
     sign_out
   end
 
-  # @params [String or Date] date
-  def fetch_wod_html_on(_date)
-    if _date.is_a?(String)
-      date = Date.parse(_date)
-    elsif _date.is_a?(Date)
-      date = _date
-    else
-      raise TypeError "_date must be String or Date object", caller
+  # @param [Date] date
+  def fetch_wod_html_on(date)
+    unless date.is_a?(Date)
+      raise TypeError "date must be Date object", caller
     end
     set_date(date)
     extract_whole_html
