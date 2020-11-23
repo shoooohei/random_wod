@@ -1,7 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+return unless File.exist?('tmp/wod_data.json')
+wod_data = JSON.parse(IO.read('tmp/wod_data.json'))
+
+is_succeeded = true
+Wod.transaction do
+  wod_data.each do |attributes|
+    wod = Wod.new(date: Date.parse(attributes["date"]), content: attributes["content"])
+    unless wod.save
+      is_succeeded = false
+      puts "#{attributes["date"]}のWODの保存に失敗しました"
+      puts "#{wod.errors.full_messages}"
+      raise ActiveRecord::Rollback
+    end
+  end
+end
+
+if is_succeeded
+  puts "全てのWODデータの挿入に成功しました。"
+end

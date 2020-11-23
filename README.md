@@ -1,13 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ概要
+CrossfitのWODを記録するWebアプリケーション
 
-Things you may want to cover:
+* Ruby version  
+2.6.6
 
-* Ruby version
+* System dependencies  
+PostgreSQL 12.2  
+ChromeDriver 87.0.4280.20
 
-* System dependencies
+* How to build development environment
+```bash
+$ sh script/start_record_wod_container.sh
+```
 
 * Configuration
 
@@ -20,5 +26,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...

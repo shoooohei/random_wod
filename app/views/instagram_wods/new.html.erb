@@ -1,0 +1,19 @@
+<%= form_with(scope: :wod, url: wods_path) do |form| %>
+  <%= form.label :url, "URL" %>
+  <%= form.text_field :url, size: 100 %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<div>
+  <p>Video URL</p>
+  <div>
+    <a class="hide" id="video-btn" href="" target="_blank">Go to Video Page</a>
+  </div>
+</div>
+
+<div>
+  <p>Image URL</p>
+  <div>
+    <a class="hide" id="image-btn" href="" target="_blank">Go to Imgae Page</a>
+  </div>
+</div>
