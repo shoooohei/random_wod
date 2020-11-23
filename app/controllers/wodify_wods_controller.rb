@@ -15,10 +15,10 @@ class WodifyWodsController < ApplicationController
         wod = Wod.new(specified_date: date)
         logger.info("specified_date: #{date}")
         if wod.create_from_html(each_wod_html)
-          logger.info("#{date.to_s}のWodが保存できました。")
+          logger.info("#{date}のWodが保存できました。")
         else
           are_all_wods_saved = false
-          logger.error("#{date.to_s}のWodが保存に失敗しました。")
+          logger.error("#{date}のWodが保存に失敗しました。")
           logger.error(wod.errors.full_messages)
           raise ActiveRecord::Rollback
         end
