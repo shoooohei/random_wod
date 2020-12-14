@@ -3,22 +3,32 @@
   <%= flash[:notice] %>
 <% end %>
 <%= form_with(scope: :wodify_wod, url: wodify_wods_path, local: true) do |form| %>
-  <div>
-    <%= form.label :email, "メールアドレス" %>
-    <%= form.email_field :email, required: true %>
+  <div class="form-group row">
+    <%= form.label :email, "メールアドレス", class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.email_field :email, class: 'form-control', required: true %>
+    </div>
   </div>
-  <%= form.label :password, "パスワード" %>
-  <%= form.password_field :password, required: true %>
+  <div class="form-group row">
+    <%= form.label :password, "パスワード", class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.password_field :password, class: 'form-control', required: true %>
+    </div>
   </div>
-  <div>
-    <%= form.label :start_date, "開始日" %>
-    <%= form.date_field :date_1, value: Date.current %>
+  <div class="form-group row">
+    <%= form.label :start_date, "開始日", class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.date_field :date_1, class: 'form-control', value: Date.current %>
+    </div>
   </div>
-  <br>
-  <div>
-    <%= form.label :end_date, "終了日" %>
-    <%= form.date_field :date_2, value: Date.current %>
+  <div class="form-group row">
+    <%= form.label :end_date, "終了日", class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.date_field :date_2, class: 'form-control', value: Date.current %>
+    </div>
   </div>
-  <br>
-  <%= form.submit "検索" %>
+  <%= form.submit '検索', class: 'btn btn-dark btn-block' %>
 <% end %>
+
+<br><br>
+<%= link_to '＜ WOD一覧へ', wods_path, class: 'btn btn-secondary btn-block' %>

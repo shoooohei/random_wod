@@ -53,7 +53,7 @@ class WodifyWod
   # @param [Date] date
   def fetch_wod_html_on(date)
     unless date.is_a?(Date)
-      raise TypeError "date must be Date object", caller
+      raise TypeError, "date must be Date object", caller
     end
     set_date(date)
     extract_whole_html

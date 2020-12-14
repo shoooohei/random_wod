@@ -27,6 +27,7 @@ class Wod < ApplicationRecord
   class WodExtraction
     WOD_DATE_ID = Rails.application.credentials.dig(:wodify, :html, :wod_date_id)
     NO_WOD_FOUND_TEXT = Rails.application.credentials.dig(:wodify, :html, :no_wod_found_text)
+    ANNOUNCEMENT_ID = Rails.application.credentials.dig(:wodify, :html, :wod_announcement_id)
     MAIN_CONTENT_ID = Rails.application.credentials.dig(:wodify, :html, :wod_main_content_id)
 
     def self.execute(html)
@@ -39,6 +40,7 @@ class Wod < ApplicationRecord
         return false
       end
       attributes[:date] = Date.parse(displayed_date_str)
+      doc.css("##{ANNOUNCEMENT_ID}").remove
       attributes[:content] = doc.css("##{MAIN_CONTENT_ID}").inner_html.gsub(/\n/, "")
       attributes
     end
