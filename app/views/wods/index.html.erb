@@ -1,0 +1,37 @@
+<h1>WOD一覧</h1>
+<br><br>
+<h2>WODを検索</h2>
+<%= search_form_for @q do |f| %>
+  <div class="form-group row">
+      <%= f.label :date, "日付", class: 'col-2 col-form-label' %>
+      <div class="col-10">
+        <%= f.date_field :date_eq, class: 'form-control' %>
+      </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :content, "内容", class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= f.search_field :content_cont, class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.submit '検索', class: 'btn btn-dark btn-block' %>
+<% end %>
+<br><br>
+<h2>ヒットしたWOD</h2>
+<% if @wod.present? %>
+  <div>
+    <h3>日付</h3>
+    <div>
+      <%= @wod.date %>
+    </div>
+    <br>
+    <h3>内容</h3>
+    <div>
+      <%= raw(@wod.content) %>
+    </div>
+  </div>
+<% else %>
+  該当するWODはありません。
+<% end %>
+<br><br>
+<%= link_to 'Wodifyを検索', new_wodify_wod_path, class: 'btn btn-secondary btn-block' %>
