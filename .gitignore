@@ -22,10 +22,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
-# IntelliJ
-.idea
-*.iml
+.env
 
 /public/packs
 /public/packs-test
