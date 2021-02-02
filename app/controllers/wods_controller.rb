@@ -3,4 +3,8 @@ class WodsController < ApplicationController
     @q = Wod.ransack(params[:q])
     @wod = @q.result(distinct: true).shuffle.first
   end
+
+  def show
+    @wod = Wod.find(params[:id])
+  end
 end
