@@ -30,7 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'capybara', '>= 2.15'
 gem 'selenium-webdriver'
-gem 'devise'
 gem 'ransack'
 
 group :development, :test do
