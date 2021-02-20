@@ -3,7 +3,8 @@ class Wod < ApplicationRecord
   attr_accessor :specified_date
 
   validates :date, presence: true
-  validates_presence_of :content
+  validates :name, presence: true
+  validates :content, presence: true
   validate :must_be_same_date_as_specified_date, if: :specified_date
 
   def create_from_html(html)

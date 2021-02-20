@@ -4,7 +4,11 @@ wod_data = JSON.parse(IO.read('tmp/wod_data.json'))
 is_succeeded = true
 Wod.transaction do
   wod_data.each do |attributes|
-    wod = Wod.new(date: Date.parse(attributes["date"]), content: attributes["content"])
+    wod = Wod.new(
+      date: Date.parse(attributes["date"]),
+      name: attributes["name"],
+      content: attributes["content"]
+    )
     unless wod.save
       is_succeeded = false
       puts "#{attributes["date"]}のWODの保存に失敗しました"
