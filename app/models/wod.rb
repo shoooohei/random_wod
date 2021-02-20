@@ -2,7 +2,7 @@ class Wod < ApplicationRecord
 
   attr_accessor :specified_date
 
-  validates :date, presence: true, uniqueness: true
+  validates :date, presence: true
   validates_presence_of :content
   validate :must_be_same_date_as_specified_date, if: :specified_date
 

@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2020_11_15_100351) do
   enable_extension "plpgsql"
 
   create_table "wods", force: :cascade do |t|
-    t.date "date", null: false
+    t.date "date"
+    t.string "name"
     t.string "content"
     t.string "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["date"], name: "index_wods_on_date", unique: true
   end
 
 end
