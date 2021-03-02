@@ -5,6 +5,7 @@ is_succeeded = true
 Wod.transaction do
   wod_data.each do |attributes|
     wod = Wod.new(
+      id: attributes["id"],
       date: Date.parse(attributes["date"]),
       name: attributes["name"],
       content: attributes["content"]
