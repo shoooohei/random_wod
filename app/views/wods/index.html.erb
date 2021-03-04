@@ -27,11 +27,13 @@
     <br>
     <h3>内容</h3>
     <div>
-      <%= raw(@wod.content) %>
+      <%= simple_format(@wod.content) %>
     </div>
   </div>
 <% else %>
   該当するWODはありません。
 <% end %>
 <br><br>
-<%= link_to 'Wodifyを検索', new_wodify_wod_path, class: 'btn btn-secondary btn-block' %>
+<div class="text-right">
+  <%= link_to 'WOD詳細 >', wod_path(@wod), class: 'btn btn-secondary' %>
+</div>
