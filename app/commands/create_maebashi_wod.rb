@@ -1,7 +1,7 @@
 require 'net/http'
 
 class CreateMaebashiWod
-  # put SimpleCommand before the class' ancestors chain
+
   prepend SimpleCommand
   include ActiveModel::Model
   include ActiveModel::Attributes
