@@ -82,6 +82,8 @@ class CreateMaebashiWod
       entry_content.css('#quads-ad2').remove
       @wod.date = target_date
       @wod.name = target_date.to_s
+      # MARK: textを呼び出すとbrタグの改行が消えてしまうため予め改行コードに変換しておく
+      entry_content.search('br').each { |br| br.replace("\n") }
       @wod.content = entry_content.text.strip.gsub(/\n+/, "\n")
     elsif response.code_type == Net::HTTPNotFound
       message = "#{target_date}のWODは存在しません。"
