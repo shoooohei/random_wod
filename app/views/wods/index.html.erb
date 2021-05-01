@@ -30,10 +30,10 @@
       <%= simple_format(@wod.content) %>
     </div>
   </div>
+  <br><br>
+  <div class="text-right">
+    <%= link_to 'WOD詳細 >', wod_path(@wod), class: 'btn btn-secondary' %>
+  </div>
 <% else %>
   該当するWODはありません。
 <% end %>
-<br><br>
-<div class="text-right">
-  <%= link_to 'WOD詳細 >', wod_path(@wod), class: 'btn btn-secondary' %>
-</div>
