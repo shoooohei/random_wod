@@ -1,0 +1,6 @@
+<%= link_to '< WOD詳細', wod_path(@wod), class: 'btn btn-secondary my-3' %>
+<h2>ログを編集する</h2>
+<%= render 'form', wod: @wod, log: @log  %>
+
+<h2>WOD詳細</h2>
+<%= render 'shared/wod_detail', wod: @wod %>
