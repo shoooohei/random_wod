@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'rails', '6.1.3.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -32,6 +32,7 @@ gem 'capybara', '>= 2.15'
 gem 'selenium-webdriver'
 gem 'ransack'
 gem 'simple_command'
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

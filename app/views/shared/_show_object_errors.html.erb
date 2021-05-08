@@ -1,0 +1,13 @@
+<!--必要引数 {object: , object_name: ""}-->
+<!-- render '/shared/show_object_errors', { object: , object_name: "" } -->
+<div class="form-group has-error" id="<%= object_name %>-errors">
+  <% if object.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

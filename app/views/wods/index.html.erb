@@ -19,17 +19,8 @@
 <br><br>
 <h2>ヒットしたWOD</h2>
 <% if @wod.present? %>
-  <div>
-    <h3>日付</h3>
-    <div>
-      <%= @wod.date %>
-    </div>
-    <br>
-    <h3>内容</h3>
-    <div>
-      <%= simple_format(@wod.content) %>
-    </div>
-  </div>
+  <%= render 'shared/wod_detail', wod: @wod %>
+
   <br><br>
   <div class="text-right">
     <%= link_to 'WOD詳細 >', wod_path(@wod), class: 'btn btn-secondary' %>

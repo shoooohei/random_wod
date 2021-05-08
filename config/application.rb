@@ -16,6 +16,8 @@ module RecordWod
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.time_zone = 'Tokyo'
+    config.i18n.default_locale = :ja
+    config.i18n.available_locales = %i[ja en]
     config.active_record.default_timezone = :local
     config.generators do |g|
       g.assets     false

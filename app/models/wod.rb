@@ -2,6 +2,8 @@ class Wod < ApplicationRecord
 
   attr_accessor :specified_date
 
+  has_many :logs
+
   validates :date, presence: true
   validates :name, presence: true
   validates :content, presence: true

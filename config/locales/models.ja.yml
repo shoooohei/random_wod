@@ -1,0 +1,13 @@
+ja:
+  activemodel:
+
+  activerecord:
+    models:
+      log: ログ
+
+    attributes:
+      log:
+        date: 日付
+        result: 結果
+        rate: 達成度
+        memo: 感想
