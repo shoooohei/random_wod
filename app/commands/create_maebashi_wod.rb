@@ -44,7 +44,7 @@ class CreateMaebashiWod
   end
 
   def fetch_wod
-    target_date_str = target_date.strftime('%Y年%-m月%-d日')
+    target_date_str = target_date.strftime('%Y-%-m-%-d')
     prev_date_str = target_date.prev_day.strftime('%Y/%m/%d')
     uri = URI.parse(URI.encode("http://crossfit-gunma.com/#{prev_date_str}/#{target_date_str}/"))
     http = Net::HTTP.new(uri.host, uri.port)
